@@ -3,8 +3,15 @@ service: rbi-lambda
 plugins:
   - serverless-dotenv-plugin
   - serverless-plugin-optimize
+  - serverless-stage-manager
   - serverless-offline
   - serverless-plugin-warmup
+
+# Custom variables
+custom:
+  stages: # for stage manager
+    - dev
+    - prod
 
 provider:
   name: aws

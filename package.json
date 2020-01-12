@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "sls offline start",
     "deploy": "sls deploy",
-    "deploy-functions": "sls deploy function --function router"
+    "deployProd": "sls deploy -s prod",
+    "deployFunctions": "sls deploy function --function router",
+    "deployFunctionsProd": "sls deploy -s prod function --function router"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,7 @@
     "dayjs": "^1.8.17",
     "dotenv": "^8.2.0",
     "lambda-api": "^0.10.4",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "serverless-stage-manager": "^1.0.5"
   }
 }
