@@ -1,17 +1,15 @@
 service: rbi-lambda
 
-plugins:
-  - serverless-dotenv-plugin
-  - serverless-plugin-optimize
-  - serverless-stage-manager
-  - serverless-offline
-  - serverless-plugin-warmup
+# Create an optimized package for the functions 
+package:
+  individually: true
 
-# Custom variables
-custom:
-  stages: # for stage manager
-    - dev
-    - prod
+plugins:
+  - serverless-offline
+  - serverless-stage-manager
+  - serverless-plugin-optimize
+  - serverless-plugin-warmup
+  - serverless-dotenv-plugin
 
 provider:
   name: aws
@@ -42,6 +40,12 @@ provider:
       Action:
         - lambda:InvokeFunction
       Resource: "*"
+
+# Custom variables
+custom:
+  stages: # for stage manager
+    - dev
+    - prod
 
 # Functions
 functions:
