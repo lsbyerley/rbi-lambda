@@ -15,10 +15,10 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   memorySize: 768
-  timeout: 10
-  stage: prod
+  timeout: 15
+  stage: ${opt:stage,'dev'}
   region: us-east-1
   environment:
     MINDBODY_SITE_ID: ${env:MINDBODY_SITE_ID}
@@ -46,7 +46,8 @@ provider:
 # Functions
 functions:
   router:
-    warmup: false
+    warmup:
+      enabled: prod
     name: ${self:service}-${self:provider.stage}
     handler: handler.router
     timeout: 15
