@@ -26,6 +26,7 @@
     "dotenv": "^8.2.0",
     "lambda-api": "^0.10.4",
     "lodash": "^4.17.11",
+    "mailgun-js": "^0.22.0",
     "serverless-stage-manager": "^1.0.5"
   }
 }
