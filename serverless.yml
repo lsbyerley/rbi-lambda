@@ -24,6 +24,9 @@ provider:
     MINDBODY_API_KEY: ${env:MINDBODY_API_KEY}
     MINDBODY_USERNAME: ${env:MINDBODY_USERNAME}
     MINDBODY_PASSWORD: ${env:MINDBODY_PASSWORD}
+    MAILGUN_API_KEY: ${env:MAILGUN_API_KEY}
+    MAILGUN_HOST: ${env:MAILGUN_HOST}
+    MAILGUN_SANDBOX_HOST: ${env:MAILGUN_SANDBOX_HOST}
   iamRoleStatements: # IAM Role Permissions
     - Effect: Allow
       Action:

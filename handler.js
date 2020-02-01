@@ -54,16 +54,20 @@ const sendEmail = require(('./lib/piFormSubmit'));
   app.post('/pi-form', async (req, res) => {
 
     try {
-      
+
+      //TODO: Data sanitization
       const data = _get(req, 'body');
-      const emailRes = await sendEmail(data)
 
-      console.log('emailRes', emailRes)
+      if (data.playerName && data.parentName && data.parentPhone) {
+        const emailRes = await sendEmail(data)
 
-      if (!emailRes.error) {
-        res.status(200).json(emailRes)
+        if (!emailRes.error) {
+          res.status(200).json(emailRes)
+        } else {
+          res.status(500).json({'status':'notsent'})
+        }
       } else {
-        res.status(500).json({'status':'notsent'})
+        res.status(500).json({'status':'invalidata'})
       }
 
     } catch(error) {
