@@ -1,6 +1,6 @@
 service: rbi-lambda
 
-# Create an optimized package for the functions 
+# Create an optimized package for the functions
 package:
   individually: true
 
@@ -60,5 +60,6 @@ functions:
     timeout: 15
     events:
       - http:
-          path: 'v1/{proxy+}'
+          path: "v1/{proxy+}"
           method: any
+          cors: true
